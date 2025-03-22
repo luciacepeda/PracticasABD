@@ -1,6 +1,6 @@
 ## Memoria Prácticas
 
-Asegurarse que el usuario __oracle__ es el que está ejecutando la shell con el comando `whoami`.
+Asegurarse que el usuario _oracle_ es el que está ejecutando la shell con el comando `whoami`.
 
 #### Iniciar servicios y BD
 ```sql
@@ -28,13 +28,13 @@ Asegurarse que el usuario __oracle__ es el que está ejecutando la shell con el 
 // Detener Oracle Enterprise Manager(opcional)
     emctl stop dbconsole
 
-// Cerrar y desmontar BD
-      sqlplus /nolog
+//  Abrimos shell de SQLPlus con la contraseña
+      sqlplus sys as sysdba
 
-// En la SQLShell
+// En la SQLShell derribamos BD -> informa que cierra y desmonta BD, derriba instancia
       shutdown immediate
       exit
 
-// Detener listener
+// Derribar listener
       lsnrctl stop
 ```
