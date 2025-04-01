@@ -20,6 +20,7 @@ Listas
 | María   | 30   |
 
 Puedes escribir `código en línea` así.
+Puedes escribir flecha así $\rightarrow$
 
 <details>
   <summary>Haz clic para ver más</summary>
