@@ -11,7 +11,7 @@ Asegurarse que el usuario _oracle_ es el que está ejecutando la shell con el co
       sqlplus /nolog
 
 // Conectarse a la instancia de BD como administrador (En la SQLShell) con la contraseña ABD3oradba
-      connec sys as sysdba
+      connect sys as sysdba
 
 // Iniciar BD -> informa asignaciones de memoria para la instancia, indica que monta y abre la BD
       startup
