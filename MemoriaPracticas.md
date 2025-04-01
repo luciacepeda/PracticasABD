@@ -1,6 +1,6 @@
 # Memoria Prácticas
 
-##  1.Tipos de Sentencias SQL  
+##  1. Tipos de Sentencias SQL  
 
 ### DML (Data Manipulation Language) - Manipulación de Datos  
 Se usa para consultar, insertar, actualizar y eliminar datos en una base de datos.  
@@ -56,14 +56,14 @@ TRUNCATE TABLE usuarios;
 ```
 ---
 
-## 🔷 3. DCL (Data Control Language) - Control de Accesos y Permisos  
+### DCL (Data Control Language) - Control de Accesos y Permisos  
 Se usa para gestionar los permisos y la seguridad en la base de datos.  
 
-### 📌 Principales Sentencias DCL:  
+#### Principales Sentencias DCL:  
 - `GRANT` → Otorga permisos a usuarios.  
 - `REVOKE` → Revoca permisos previamente concedidos.  
 
-### 📌 Ejemplos:  
+#### Ejemplos:  
 ```sql
 -- Otorgar permisos de lectura y escritura a un usuario
 GRANT SELECT, INSERT ON usuarios TO maria;
@@ -73,15 +73,15 @@ REVOKE INSERT ON usuarios FROM maria;
 ```
 ---
 
-## 🔷 4. TCL (Transaction Control Language) - Control de Transacciones  
+### TCL (Transaction Control Language) - Control de Transacciones  
 Se usa para manejar transacciones en la base de datos y garantizar la integridad de los datos.  
 
-### 📌 Principales Sentencias TCL:  
+#### Principales Sentencias TCL:  
 - `COMMIT` → Guarda los cambios de una transacción.  
 - `ROLLBACK` → Revierte los cambios si ocurre un error.  
 - `SAVEPOINT` → Crea puntos intermedios dentro de una transacción.  
 
-### 📌 Ejemplos:  
+#### Ejemplos:  
 ```sql
 -- Iniciar una transacción
 BEGIN;
@@ -110,19 +110,7 @@ ROLLBACK TO sp1;
 ```
 ---
 
-## 🔥 **Resumen General**  
-
-| **Tipo** | **Propósito** | **Ejemplo de Sentencias** |
-|----------|-------------|------------------|
-| **DML** | Manipulación de datos | `SELECT`, `INSERT`, `UPDATE`, `DELETE` |
-| **DDL** | Definición de estructuras | `CREATE`, `ALTER`, `DROP`, `TRUNCATE` |
-| **DCL** | Control de permisos | `GRANT`, `REVOKE` |
-| **TCL** | Control de transacciones | `COMMIT`, `ROLLBACK`, `SAVEPOINT` |
-
-```
-
-Esto te servirá como guía rápida en Markdown. Si necesitas ajustes o más detalles, dime. 🚀
-
+### Resumen General
 
 | **Tipo** | **Propósito** | **Ejemplo de Sentencias** | **Afecta estructura** | **Se puede deshacer (`ROLLBACK`)?** | **Impacto inmediato** |
 |----------|-------------|------------------|----------------|----------------------|------------------|
@@ -131,43 +119,47 @@ Esto te servirá como guía rápida en Markdown. Si necesitas ajustes o más det
 | **DCL** | Gestión de permisos | `GRANT`, `REVOKE` | ❌ No | ❌ No | ✅ Sí |
 | **TCL** | Control de transacciones | `COMMIT`, `ROLLBACK`, `SAVEPOINT` | ❌ No | ✅ Sí | 🚫 No (hasta `COMMIT`) |
 
+---
 
+## 2. Cheatsheet inicio y cierre DB
 
 Asegurarse que el usuario _oracle_ es el que está ejecutando la shell con el comando `whoami`.
 
-#### Iniciar servicios y BD
+### Iniciar servicios y BD
 ```sql
-// Iniciar listener
-      lsnrctl start
+--- Iniciar listener
+lsnrctl start
 
-// Activar shell de SQL
-      sqlplus /nolog
+--- Activar shell de SQL
+sqlplus /nolog
 
-// Conectarse a la instancia de BD como administrador (En la SQLShell) con la contraseña ABD3oradba
-      connect sys as sysdba
+--- Conectarse a la instancia de BD como administrador (En la SQLShell) con la contraseña ABD3oradba
+connect sys as sysdba
 
-// Iniciar BD -> informa asignaciones de memoria para la instancia, indica que monta y abre la BD
-      startup
+--- Iniciar BD -> informa asignaciones de memoria para la instancia, indica que monta y abre la BD
+startup
 
-// Para salir de la SQLshell 
-      exit
+--- Para salir de la SQLshell 
+exit
 
-// Iniciar Oracle Enterprise Manager(opcional)
-      emctl start dbconsole
+--- Iniciar Oracle Enterprise Manager(opcional)
+emctl start dbconsole
 ```
 
-#### Detener BD y servicios
+### Detener BD y servicios
 ``` sql
-// Detener Oracle Enterprise Manager(opcional)
-    emctl stop dbconsole
+--- Detener Oracle Enterprise Manager(opcional)
+emctl stop dbconsole
 
-//  Abrimos shell de SQLPlus con la contraseña
-      sqlplus sys as sysdba
+--- Abrimos shell de SQLPlus con la contraseña
+sqlplus sys as sysdba
 
-// En la SQLShell derribamos BD -> informa que cierra y desmonta BD, derriba instancia
-      shutdown immediate
-      exit
+--- En la SQLShell derribamos BD -> informa que cierra y desmonta BD, derriba instancia
+shutdown immediate
+exit
 
-// Derribar listener
-      lsnrctl stop
+--- Derribar listener
+lsnrctl stop
 ```
+
+---
