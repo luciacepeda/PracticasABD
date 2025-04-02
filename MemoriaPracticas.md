@@ -232,6 +232,7 @@ COMMIT;
 - **PMON (Process Monitor)** 🔄: Limpia procesos fallidos y libera recursos.  
 
 ---
+![Texto alternativo](Fotos/procesamientoConsultaDML.png)
 
 ## 🔹 6. Resumen General  
 | **Componente**  | **Descripción** |
