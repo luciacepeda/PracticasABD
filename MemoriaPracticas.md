@@ -163,3 +163,84 @@ lsnrctl stop
 ```
 
 ---
+
+## 🔹 1. Introducción a la Administración de Bases de Datos  
+El administrador de bases de datos (DBA) tiene como tareas principales:  
+- 📌 **Gestión de la disponibilidad** de la BD.  
+- 📌 **Planificación y creación** de bases de datos.  
+- 📌 **Gestión del almacenamiento** y estructuras físicas.  
+- 📌 **Gestión de la seguridad**.  
+- 📌 **Administración de red**.  
+- 📌 **Backup y recuperación** de datos.  
+- 📌 **Ajuste del rendimiento** de la BD.  
+
+---
+
+## 🔹 2. Componentes de la Arquitectura de Oracle  
+Los elementos clave de la arquitectura de Oracle incluyen:  
+- **Servidor Oracle** 🖥️: Maneja las solicitudes de los clientes.  
+- **Proceso de Usuario o Cliente** 👤: Se ejecuta en la máquina cliente e invoca aplicaciones como SQL*Plus.  
+- **Proceso de Servidor** 🛠️: Se ejecuta en la máquina servidora y procesa las llamadas del cliente.  
+- **Instancias Oracle** ⚙️: Son el mecanismo para acceder a una base de datos Oracle.  
+- **Base de Datos Oracle** 🗄️: Contiene archivos de control, logs redo, datos y parámetros.  
+
+---
+
+## 🔹 3. Procesamiento de Consultas y Sentencias  
+### 📌 Procesamiento de una Consulta  
+1️⃣ Analizar la sentencia.  
+2️⃣ Ejecutar la consulta.  
+3️⃣ Obtener los resultados.  
+
+```sql
+SELECT * FROM emp ORDER BY ename;
+```
+
+### 📌 Procesamiento de una Sentencia DML  
+1️⃣ Se envía la instrucción al servidor.  
+2️⃣ Se almacena en el buffer de la BD.  
+3️⃣ Se registra en el log de Redo.  
+4️⃣ Se confirma la ejecución.  
+
+```sql
+UPDATE emp SET sal = sal * 1.1 WHERE empno = 7369;
+```
+
+### 📌 Procesamiento de un COMMIT  
+1️⃣ Se actualizan los buffers.  
+2️⃣ Se escribe en los logs de Redo.  
+3️⃣ Se confirma la transacción.  
+
+```sql
+COMMIT;
+```
+
+---
+
+## 🔹 4. Estructuras de Memoria de Oracle  
+- **Shared Pool** 🧠: Contiene el diccionario de datos y la caché de sentencias SQL.  
+- **Buffer Cache** 📌: Almacena bloques de datos usados recientemente.  
+- **Program Global Area (PGA)** 💾: Memoria no compartida con información de sesión y estado de cursores.  
+- **Redo Log Buffer** 🔁: Guarda los cambios antes de escribir en disco.  
+
+---
+
+## 🔹 5. Procesos en Oracle  
+- **DBWR (Database Writer)** 📝: Escribe los datos modificados en los archivos de la BD.  
+- **LGWR (Log Writer)** ✍️: Registra los cambios en los archivos de Redo Logs.  
+- **SMON (System Monitor)** 🛠️: Recupera la base de datos en caso de fallo.  
+- **PMON (Process Monitor)** 🔄: Limpia procesos fallidos y libera recursos.  
+
+---
+
+## 🔹 6. Resumen General  
+| **Componente**  | **Descripción** |
+|-----------------|----------------|
+| **Instancia**   | Grupo de procesos y memoria que gestiona la BD. |
+| **SGA**         | Memoria compartida con caches y buffers. |
+| **PGA**         | Memoria privada de cada proceso de servidor. |
+| **Buffer Cache** | Almacena los bloques de datos usados recientemente. |
+| **Shared Pool**  | Contiene SQL, PL/SQL y metadatos de BD. |
+| **Redo Log**     | Registro de cambios en la BD para recuperación. |
+
+---
