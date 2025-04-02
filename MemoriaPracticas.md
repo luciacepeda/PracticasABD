@@ -233,6 +233,9 @@ COMMIT;
 
 ---
 ![Texto alternativo](Fotos/procesamientoConsultaDML.png)
+<img src="Fotos/procesamientoConsultaDML.png" alt="Descripción" width="70%" height="auto">
+
+
 
 ## 🔹 6. Resumen General  
 | **Componente**  | **Descripción** |
